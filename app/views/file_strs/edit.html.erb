@@ -1,0 +1,27 @@
+<h1>Edit File Structur!</h1>
+<%= form_with(model: @dir_str_file_str, local: true) do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :parent_dir %><br>
+    <%= form.text_field :parent_dir %>
+  </p>
+
+  <p>
+    <%= form.label :owner %><br>
+    <%= form.text_field :owner %>
+  </p>
+
+  <p>
+    <%= form.label :dir_str_id %><br>
+    <%= form.text_field :dir_str_id %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+<%= link_to 'Back', dir_strs_path %>

@@ -1,0 +1,27 @@
+
+<h1>Listing Directory</h1>
+<%= link_to 'New Directory', new_dir_str_path %>
+<table border="1pt">
+  <tr>
+    <th>Dir Name</th>
+    <th>Parent Dir Name</th>
+    <th>Owner Name</th>
+    <th></th>
+  </tr>
+
+  <% @dir_strs.each do |dir_strs| %>
+    <tr>
+      <td><%= dir_strs.name%></td>
+      <td><%= dir_strs.parent_dir %></td>
+      <td><%= dir_strs.owner %></td>
+      <td><%= link_to 'Show', dir_str_path(dir_strs) %></td>
+      <td><%= link_to 'Edit', edit_dir_str_path(dir_strs) %></td>
+      <td><%= link_to 'Destroy', dir_str_path(dir_strs),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'New Directory', new_dir_str_path %>
+<%= link_to 'Dir Structur', controller: 'dir_strs' %>

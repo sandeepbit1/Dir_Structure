@@ -1,0 +1,47 @@
+
+<p>
+  <strong>Dir Name:</strong>
+  <%= @dir_str.name %>
+</p>
+
+<p>
+  <strong>Parent Dir Name:</strong>
+  <%= @dir_str.parent_dir %>
+</p>
+
+<p>
+  <strong>Owner Name:</strong>
+  <%= @dir_str.owner %>
+</p>
+
+
+<h2>Files</h2>
+<table border="1pt">
+  <tr>
+    <th>File Name</th>
+    <th>Parent Dir Name</th>
+    <th>Owner Name</th>
+    <th>Dir_id</th>
+    <th>Show</th>
+    <th>New</th>
+    <th>Edit</th>
+    <th>Destroy</th>
+  </tr>
+
+  <% @dir_str.file_strs.each do |file_str| %>
+    <tr>
+      <td><%= file_str.name%></td>
+      <td><%= file_str.parent_dir %></td>
+      <td><%= file_str.owner %></td>
+      <td><%= file_str.dir_str_id %></td>
+      <td><%= link_to 'Show', dir_str_file_str_path(file_str) %></td>
+      <td><%= link_to 'New', new_dir_str_file_str_path(file_str) %></td>
+      <td><%= link_to 'Edit', edit_dir_str_file_str_path(file_str) %></td>
+      <td><%= link_to 'Destroy', dir_str_file_str_path(file_str),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Back', dir_strs_path %>

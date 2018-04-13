@@ -1,0 +1,17 @@
+<p>
+  <strong>File Name:</strong>
+  <%= @file_str.name %>
+</p>
+
+<p>
+  <strong>Parent Dir Name:</strong>
+  <%= @file_str.parent_dir %>
+</p>
+
+<p>
+  <strong>Owner Name:</strong>
+  <%= @file_str.owner %>
+</p>
+<%= link_to 'Back', dir_str_path %>
+
+<%= link_to 'Edit', edit_dir_str_file_str_path(@file_str) %>

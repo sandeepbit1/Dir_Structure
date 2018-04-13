@@ -1,0 +1,20 @@
+<h1>Listing File</h1>
+<%= link_to 'New File', new_file_str_path %>
+<table border="1pt">
+  <tr>
+    <th>File Name</th>
+    <th>Parent Dir Name</th>
+    <th>Owner Name</th>
+    <th></th>
+  </tr>
+
+  <% @file_strs.each do |file_strs| %>
+    <tr>
+      <td><%= file_strs.name%></td>
+      <td><%= file_strs.parent_dir %></td>
+      <td><%= file_strs.owner %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'New Directory', new_file_str_path %>
