@@ -23,7 +23,6 @@
     <th>Owner Name</th>
     <th>Dir_id</th>
     <th>Show</th>
-    <th>New</th>
     <th>Edit</th>
     <th>Destroy</th>
   </tr>
@@ -35,13 +34,40 @@
       <td><%= file_str.owner %></td>
       <td><%= file_str.dir_str_id %></td>
       <td><%= link_to 'Show', dir_str_file_str_path(file_str) %></td>
-      <td><%= link_to 'New', new_dir_str_file_str_path(file_str) %></td>
       <td><%= link_to 'Edit', edit_dir_str_file_str_path(file_str) %></td>
-      <td><%= link_to 'Destroy', dir_str_file_str_path(file_str),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Destroy Files', [file_str.dir_str, file_str],
+             method: :delete,
+             data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
 </table>
+
+
+<h2>Add a File:</h2>
+<%= form_with(model: [ @dir_str, @dir_str.file_strs.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :parent_dir %><br>
+    <%= form.text_field :parent_dir %>
+  </p>
+
+  <p>
+    <%= form.label :owner %><br>
+    <%= form.text_field :owner %>
+  </p>
+
+  <p>
+    <%= form.label :dir_str_id %><br>
+    <%= form.text_field :dir_str_id %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
 
 <%= link_to 'Back', dir_strs_path %>

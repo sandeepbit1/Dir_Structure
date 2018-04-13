@@ -1,6 +1,5 @@
 <h1>File Structur!</h1>
-<%= form_with scope: :file_strs, url: dir_str_file_str_path, local: true do |form| %>
-
+<%= form_with(model: [ @dir_str, @dir_str.file_str.build ], local: true) do |form| %>
   <p>
     <%= form.label :name %><br>
     <%= form.text_field :name %>
